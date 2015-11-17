@@ -1,0 +1,15 @@
+registry: /tmp/gzipbeat.registry
+
+input:
+    -
+        path: /var/log/nginx/*.gz
+        exclude: /var/log/nginx/access*.gz
+        type: "gziptest1"
+        fields:
+          name1: val1
+          name2: val2
+
+output:
+    console:
+        enabled: true
+        pretty: true
