@@ -1,14 +1,23 @@
+# Example of configuration file
+
+# File where list of successfully sent files will be stored
 registry: /tmp/gzipbeat.registry
 
+# Array of inputs
 input:
     -
+        # Files that should be send
         path: /var/log/nginx/*.gz
+        # Files that should be excluded (optional)
         exclude: /var/log/nginx/access*.gz
-        type: "gziptest1"
+        
+        # Fields that will be added to event (optional)
         fields:
+          type: nginxlogs
           name1: val1
           name2: val2
 
+# Put whatever you want ...
 output:
     console:
         enabled: true
